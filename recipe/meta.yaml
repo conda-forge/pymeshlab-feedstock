@@ -20,6 +20,7 @@ source:
 
 build:
   number: 3
+  skip: true  # [win and py>310]  # nothing provides vc 10 needed by boost-cpp-1.63.0-vc10_0
 
 requirements:
   build:
@@ -30,7 +31,7 @@ requirements:
     - ninja
     - libgomp      # [linux]
     - llvm-openmp  # [osx]
-    - rsync        # [linux or osx]
+    - rsync        # [unix]
   host:
     - cgal
     - eigen
