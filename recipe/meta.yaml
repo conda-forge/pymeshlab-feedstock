@@ -19,8 +19,11 @@ source:
     folder: src/pymeshlab/pybind11
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
+  missing_dso_whitelist:
+    - '*/meshlab-common.dll'  # [win]
+    - '*/external-glew.dll'   # [win]
+  skip: true  # [win and py>310]  # nothing provides vc 10 needed by boost-cpp-1.63.0-vc10_0
 
 requirements:
   build:
@@ -31,7 +34,7 @@ requirements:
     - ninja
     - libgomp      # [linux]
     - llvm-openmp  # [osx]
-    - rsync
+    - rsync        # [unix]
   host:
     - cgal
     - eigen
@@ -57,6 +60,7 @@ requirements:
     - u3d
     - wheel
   run:
+    - qt-main  # [win]
     - numpy
     - libglu  # [linux]
     - python
@@ -66,7 +70,10 @@ test:
     - pymeshlab
   commands:
     - pip list
-    - pip check
+    # The 'pip check' command is disabled on Windows because it gives a false
+    # negative due to a metadata mismatch (conda 'vc' vs pip 'msvc-runtime').
+    # The 'imports' test above is the reliable indicator of a working package.
+    - pip check  # [not win]
   requires:
     - pip
     - python
