@@ -47,6 +47,7 @@ requirements:
     - libgl-devel  # [linux]
     - libglu       # [linux]
     - libgomp      # [linux]
+    - libjpeg-turbo
     - llvm-openmp  # [osx]
     - mpfr
     - muparser
