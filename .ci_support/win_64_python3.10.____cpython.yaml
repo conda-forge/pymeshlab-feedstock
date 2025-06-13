@@ -16,8 +16,6 @@ libboost_devel:
 - '1.86'
 libcurl:
 - '8'
-libjpeg_turbo:
-- '3'
 mpfr:
 - '4'
 pin_run_as_build:

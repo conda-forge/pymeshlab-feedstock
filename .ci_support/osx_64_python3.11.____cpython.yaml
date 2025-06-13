@@ -24,8 +24,6 @@ libboost_devel:
 - '1.86'
 libcurl:
 - '8'
-libjpeg_turbo:
-- '3'
 llvm_openmp:
 - '18'
 macos_machine:
