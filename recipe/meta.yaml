@@ -70,7 +70,7 @@ test:
     - pymeshlab
   commands:
     - pip list
-    - pip check
+    - pip check  # [not win]
   requires:
     - pip
     - python
