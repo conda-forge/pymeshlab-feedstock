@@ -70,6 +70,9 @@ test:
     - pymeshlab
   commands:
     - pip list
+    # The 'pip check' command is disabled on Windows because it gives a false
+    # negative due to a metadata mismatch (conda 'vc' vs pip 'msvc-runtime').
+    # The 'imports' test above is the reliable indicator of a working package.
     - pip check  # [not win]
   requires:
     - pip
