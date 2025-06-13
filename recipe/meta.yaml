@@ -30,7 +30,7 @@ requirements:
     - ninja
     - libgomp      # [linux]
     - llvm-openmp  # [osx]
-    - rsync
+    - rsync        # [linux or osx]
   host:
     - cgal
     - eigen
