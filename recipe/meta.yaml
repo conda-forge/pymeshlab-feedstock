@@ -60,7 +60,7 @@ requirements:
     - u3d
     - wheel
   run:
-    - msvc-runtime  # [win]
+    - qt-main  # [win]
     - numpy
     - libglu  # [linux]
     - python
