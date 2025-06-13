@@ -19,7 +19,7 @@ source:
     folder: src/pymeshlab/pybind11
 
 build:
-  number: 0
+  number: 1
   skip: true  # [osx]
   skip: true  # [win]
 
