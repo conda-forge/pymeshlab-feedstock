@@ -54,7 +54,7 @@ requirements:
     - qt-main
     - setuptools
     - tinygltf
-    - u3d
+    - u3d >=0.3.5
     - wheel
   run:
     - numpy
