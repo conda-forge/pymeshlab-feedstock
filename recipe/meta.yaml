@@ -40,7 +40,6 @@ requirements:
     - eigen
     - glew
     - gmp
-    - icu
     - igl
     - libboost-devel
     - libcurl
@@ -55,7 +54,7 @@ requirements:
     - qhull
     - pip
     - python
-    - qt-main
+    - qt-main 5.15.8 h5888daf_13
     - setuptools
     - tinygltf
     - u3d
