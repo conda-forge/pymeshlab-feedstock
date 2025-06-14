@@ -32,5 +32,7 @@ python:
 - 3.12.* *_cpython
 qhull:
 - '2020.2'
+qt_main:
+- '5.15'
 target_platform:
 - linux-64
