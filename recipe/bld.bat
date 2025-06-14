@@ -7,7 +7,7 @@ cmake -S "%SRC_DIR%" -B build -G "Ninja" ^
       -DCMAKE_INSTALL_PREFIX="%SRC_DIR%\pymeshlab" ^
       -DCMAKE_INSTALL_LIBDIR=lib ^
       -DCMAKE_BUILD_TYPE=Release ^
-      -DMESHLAB_ALLOW_OPTIONAL_EXTERNAL_LIBRARIES=OFF ^
+      -DMESHLAB_ALLOW_OPTIONAL_EXTERNAL_LIBRARIES=ON ^
       -DMESHLAB_BUILD_MINI=OFF
 
 cmake --build build --target install --parallel %CPU_COUNT%
