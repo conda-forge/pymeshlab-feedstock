@@ -60,10 +60,11 @@ requirements:
     - wheel
     - xerces-c
   run:
-    - qt-main  # [win]
     - numpy
-    - libglu  # [linux]
+    - libglu   # [linux]
     - python
+    - qt-main  # [win]
+    - u3d      # [win]
 
 test:
   imports:
