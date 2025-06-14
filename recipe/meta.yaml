@@ -58,6 +58,7 @@ requirements:
     - tinygltf
     - u3d
     - wheel
+    - xerces-c
   run:
     - qt-main  # [win]
     - numpy
