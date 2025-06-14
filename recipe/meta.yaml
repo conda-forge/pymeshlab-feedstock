@@ -19,7 +19,7 @@ source:
     folder: src/pymeshlab/pybind11
 
 build:
-  number: 1
+  number: 2
   missing_dso_whitelist:
     - '*/meshlab-common.dll'  # [win]
     - '*/external-glew.dll'   # [win]
@@ -40,7 +40,6 @@ requirements:
     - eigen
     - glew
     - gmp
-    - icu
     - igl
     - libboost-devel
     - libcurl
