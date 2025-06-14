@@ -46,7 +46,6 @@ requirements:
     - libgl-devel  # [linux]
     - libglu       # [linux]
     - libgomp      # [linux]
-    - libjpeg-turbo 2
     - llvm-openmp  # [osx]
     - mpfr
     - muparser
@@ -54,7 +53,7 @@ requirements:
     - qhull
     - pip
     - python
-    - qt-main 5.15.8 h5888daf_13
+    - qt-main
     - setuptools
     - tinygltf
     - u3d
