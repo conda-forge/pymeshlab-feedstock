@@ -64,6 +64,7 @@ requirements:
     - libglu   # [linux]
     - python
     - qt-main  # [win]
+    - tbb      # [win]
     - u3d      # [win]
 
 test:
