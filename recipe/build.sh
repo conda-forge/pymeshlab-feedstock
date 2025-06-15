@@ -15,6 +15,7 @@ cmake_args=(
   -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_LIBE57=OFF
   -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_U3D=OFF
   -DMESHLAB_BUILD_MINI=OFF
+  -DTBB_ROOT="${PREFIX}"
 )
 
 # --- macOS quirk -------------------------------------------------------------
