@@ -36,7 +36,7 @@ qt_main:
 - '5.15'
 target_platform:
 - linux-64
-tbb:
+tbb_devel:
 - '2021'
 xerces_c:
 - '3.2'
