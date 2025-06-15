@@ -58,7 +58,7 @@ requirements:
     - python
     - qt-main
     - setuptools
-    - tbb
+    - tbb-devel
     - tinygltf
     - u3d
     - wheel
