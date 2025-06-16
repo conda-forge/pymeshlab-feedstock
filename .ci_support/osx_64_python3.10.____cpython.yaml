@@ -22,6 +22,8 @@ libboost_devel:
 - '1.86'
 libcurl:
 - '8'
+libpng:
+- '1.6'
 llvm_openmp:
 - '18'
 macos_machine:
@@ -44,3 +46,5 @@ tbb_devel:
 - '2021'
 xerces_c:
 - '3.2'
+zlib:
+- '1'
