@@ -63,13 +63,15 @@ requirements:
     - u3d
     - wheel
     - xerces-c
+    - libpng  # [osx]
+    - zlib    # [osx]
   run:
     - numpy
     - libglu   # [linux]
     - python
     - qt-main  # [win]
     - tbb      # [win]
-    - u3d      # [win]
+    - u3d
 
 test:
   imports:
