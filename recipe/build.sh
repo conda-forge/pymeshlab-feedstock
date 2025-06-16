@@ -14,6 +14,8 @@ cmake_args=(
   -DCMAKE_BUILD_TYPE=Release
   -DMESHLAB_ALLOW_OPTIONAL_EXTERNAL_LIBRARIES=ON
   -DMESHLAB_BUILD_MINI=OFF
+  -DUSE_LAPACK=ON
+  -DBLA_VENDOR=OpenBLAS
 )
 
 # --- macOS quirk -------------------------------------------------------------
