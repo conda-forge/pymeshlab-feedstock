@@ -14,8 +14,12 @@ cmake_args=(
   -DCMAKE_BUILD_TYPE=Release
   -DMESHLAB_ALLOW_OPTIONAL_EXTERNAL_LIBRARIES=ON
   -DMESHLAB_BUILD_MINI=OFF
-  -DUSE_LAPACK=ON
-  -DBLA_VENDOR=OpenBLAS
+  # --- START Levmar Fix ---
+  # Override hardcoded variables in the levmar CMakeLists.txt
+  -DHAVE_LAPACK=ON
+  -DLAPACKBLAS_DIR="${PREFIX}/lib"
+  -DNEED_F2C=OFF
+  # --- END Levmar Fix ---
 )
 
 # --- macOS quirk -------------------------------------------------------------
