@@ -21,6 +21,11 @@ cmake_args=(
 #   Frameworks/ and PlugIns/  instead of lib/.
 # For conda-build we want everything under lib/ so the usual rsync step works.
 if [[ "${target_platform}" == osx-* ]]; then
+  # FIX for u3d-1.5.1 dependency on macOS
+  # 1. libpng tries to include <fp.h>, which does not exist.
+  # 2. zlib redefines fdopen(), breaking system <stdio.h>.
+  export CFLAGS="${CFLAGS:-} -DPNG_NO_FLOATING_POINT_SUPPORT -Dfdopen=fdopen"
+
   cmake_args+=(-DCMAKE_INSTALL_LIBDIR=lib)     # ask CMake to use lib/
 fi
 # -----------------------------------------------------------------------------
