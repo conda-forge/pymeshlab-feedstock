@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export CXXFLAGS="${CXXFLAGS:-} -include cstdint"
+
 ###############################################################################
 # 1. Configure CMake
 ###############################################################################
@@ -11,8 +13,6 @@ cmake_args=(
   -DCMAKE_INSTALL_PREFIX="${SRC_DIR}/pymeshlab"
   -DCMAKE_BUILD_TYPE=Release
   -DMESHLAB_ALLOW_OPTIONAL_EXTERNAL_LIBRARIES=ON
-  -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_LIBE57=OFF
-  -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_U3D=OFF
   -DMESHLAB_BUILD_MINI=OFF
 )
 
@@ -21,6 +21,7 @@ cmake_args=(
 #   Frameworks/ and PlugIns/  instead of lib/.
 # For conda-build we want everything under lib/ so the usual rsync step works.
 if [[ "${target_platform}" == osx-* ]]; then
+  cmake_args+=(-DMESHLAB_ALLOW_DOWNLOAD_SOURCE_U3D=OFF)
   cmake_args+=(-DCMAKE_INSTALL_LIBDIR=lib)     # ask CMake to use lib/
 fi
 # -----------------------------------------------------------------------------
