@@ -60,6 +60,7 @@ requirements:
     - setuptools
     - tbb-devel
     - tinygltf
+    - u3d      # [win]
     - wheel
     - xerces-c
   run:
