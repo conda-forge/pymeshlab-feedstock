@@ -43,7 +43,7 @@ requirements:
     - embree
     - glew
     - gmp
-    - igl
+    - igl          # [linux64 or (osx and x86_64)]
     - libboost-devel
     - libcurl
     - libgl-devel  # [linux]
