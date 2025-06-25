@@ -19,7 +19,7 @@ source:
     folder: src/pymeshlab/pybind11
 
 build:
-  number: 4
+  number: 5
   missing_dso_whitelist:
     - '*/external-glew.dll'    # [win]
     - '*/external-lib3ds.dll'  # [win]
@@ -32,10 +32,12 @@ requirements:
     - {{ compiler("cxx") }}
     - {{ stdlib("c") }}
     - cmake <4
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - make
     - ninja
     - libgomp      # [linux]
     - llvm-openmp  # [osx]
+    - python                                 # [build_platform != target_platform]
     - rsync        # [unix]
   host:
     - cgal
@@ -43,7 +45,7 @@ requirements:
     - embree
     - glew
     - gmp
-    - igl
+    - igl          # [linux64 or (osx and x86_64)]
     - libboost-devel
     - libcurl
     - libgl-devel  # [linux]
