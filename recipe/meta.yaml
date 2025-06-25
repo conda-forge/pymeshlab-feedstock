@@ -32,10 +32,12 @@ requirements:
     - {{ compiler("cxx") }}
     - {{ stdlib("c") }}
     - cmake <4
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - make
     - ninja
     - libgomp      # [linux]
     - llvm-openmp  # [osx]
+    - python                                 # [build_platform != target_platform]
     - rsync        # [unix]
   host:
     - cgal
