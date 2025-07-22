@@ -2,6 +2,7 @@
 set -euo pipefail
 
 export CXXFLAGS="${CXXFLAGS:-} -include cstdint"
+export CXXFLAGS="${CXXFLAGS:-} -include algorithm"
 
 ###############################################################################
 # 1. Configure CMake
