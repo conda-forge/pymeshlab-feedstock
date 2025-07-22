@@ -1,5 +1,5 @@
 {% set name = "pymeshlab" %}
-{% set version = "2023.12.post3" %}
+{% set version = "2025.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/cnr-isti-vclab/PyMeshLab/archive/v{{ version }}.tar.gz
-    sha256: f7542489eec3545a0e0478795b5f01a9f204272ca44c9b94ca9f9290acd1bd6c
+    sha256: f915318995bb4e0a4b1506d2d79e2f9ab543b836218982ff6c6e8f8127d7ac2d
   - url: https://github.com/cnr-isti-vclab/meshlab/archive/2dbd2f4b12df3b47d8777b2b4a43cabd9e425735.tar.gz
     sha256: 9236ad0d27e6712be247148789737598058c8f332e0333a36f48c54d0a475061
     folder: src/meshlab
@@ -19,13 +19,13 @@ source:
     folder: src/pymeshlab/pybind11
 
 build:
-  number: 6
+  number: 0
   missing_dso_whitelist:
     - '*/external-glew.dll'    # [win]
     - '*/external-lib3ds.dll'  # [win]
     - '*/IDTF.dll'             # [win]
     - '*/meshlab-common.dll'   # [win]
-  skip: true  # [win and py>310]  # nothing provides vc 10 needed by boost-cpp-1.63.0-vc10_0
+  skip: true  # [win and py>310]
 
 requirements:
   build:
