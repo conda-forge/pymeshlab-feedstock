@@ -46,7 +46,6 @@ requirements:
     - glew
     - gmp
     - igl          # [linux64 or (osx and x86_64)]
-    - lib3mf
     - libboost-devel
     - libcurl
     - libgl-devel  # [linux]
@@ -68,7 +67,6 @@ requirements:
     - xerces-c
   run:
     - numpy
-    - lib3mf
     - libglu   # [linux]
     - python
     - qt-main  # [win]
