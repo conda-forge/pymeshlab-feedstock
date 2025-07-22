@@ -48,6 +48,20 @@ rsync -avm --include="*${SHLIB_EXT}" --include="*/" --exclude="*" \
       "${SRC_DIR}/pymeshlab/lib/" "${PREFIX}/lib/"
 
 ###############################################################################
+# 3.5 Copy the vendored lib3mf into the right place for each OS
+###############################################################################
+# Windows dlls belong in $PREFIX/Library/bin; others go to $PREFIX/lib
+if [[ "${target_platform}" == win-* ]]; then
+  dest_dir="${PREFIX}/Library/bin"
+else
+  dest_dir="${PREFIX}/lib"
+fi
+mkdir -p "${dest_dir}"
+echo "Copying vendored lib3mf into ${dest_dir}"
+find build -type f -name "*lib3mf*${SHLIB_EXT}*" \
+     -exec cp -v '{}' "${dest_dir}/" \; || true
+
+###############################################################################
 # 4. Install the Python wheel into the conda environment
 ###############################################################################
 "${PYTHON}" -m pip install . -vv --no-deps --no-build-isolation
