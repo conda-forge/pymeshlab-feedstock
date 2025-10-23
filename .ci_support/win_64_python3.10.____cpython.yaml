@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2022
 glew:
-- '2.1'
+- '2.2'
 gmp:
 - '6'
 libboost_devel:
@@ -31,4 +31,4 @@ target_platform:
 tbb_devel:
 - '2021'
 xerces_c:
-- '3.2'
+- '3.3'
