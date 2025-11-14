@@ -3,10 +3,13 @@ set -euo pipefail
 
 export CXXFLAGS="${CXXFLAGS:-} -include cstdint"
 
-# Suppress Clang 19+ error about missing template argument list after template keyword
-# This is needed for vcglib which uses older C++ template syntax
+# Suppress Clang 19+ errors for vcglib which uses older C++ template syntax
 if [[ "${target_platform}" == osx-* ]]; then
   export CXXFLAGS="${CXXFLAGS} -Wno-error=missing-template-arg-list-after-template-kw"
+  # Downgrade template-related lookup errors to warnings (vcglib has template base class member access issues)
+  export CXXFLAGS="${CXXFLAGS} -Wno-error=undeclared-selector -Wno-error=unknown-warning-option"
+  # Use relaxed template instantiation for older code
+  export CXXFLAGS="${CXXFLAGS} -frelaxed-template-template-args"
 fi
 
 ###############################################################################
