@@ -2,8 +2,6 @@ c_stdlib:
 - sysroot
 c_stdlib_version:
 - '2.17'
-cdt_name:
-- conda
 channel_sources:
 - conda-forge
 channel_targets:
@@ -15,7 +13,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 glew:
-- '2.1'
+- '2.2'
 gmp:
 - '6'
 libboost_devel:
@@ -39,4 +37,4 @@ target_platform:
 tbb_devel:
 - '2021'
 xerces_c:
-- '3.2'
+- '3.3'
