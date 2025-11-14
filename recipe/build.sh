@@ -3,6 +3,12 @@ set -euo pipefail
 
 export CXXFLAGS="${CXXFLAGS:-} -include cstdint"
 
+# Suppress Clang 19+ error about missing template argument list after template keyword
+# This is needed for vcglib which uses older C++ template syntax
+if [[ "${target_platform}" == osx-* ]]; then
+  export CXXFLAGS="${CXXFLAGS} -Wno-error=missing-template-arg-list-after-template-kw"
+fi
+
 ###############################################################################
 # 1. Configure CMake
 ###############################################################################
