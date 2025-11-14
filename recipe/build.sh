@@ -23,12 +23,15 @@ cmake_args=(
 )
 
 # --- macOS quirk -------------------------------------------------------------
-# MeshLab’s CMake files install .dylib and plug-in .so files into
+# MeshLab's CMake files install .dylib and plug-in .so files into
 #   Frameworks/ and PlugIns/  instead of lib/.
 # For conda-build we want everything under lib/ so the usual rsync step works.
 if [[ "${target_platform}" == osx-* ]]; then
   cmake_args+=(-DMESHLAB_ALLOW_DOWNLOAD_SOURCE_U3D=OFF)
   cmake_args+=(-DCMAKE_INSTALL_LIBDIR=lib)     # ask CMake to use lib/
+  # Explicitly set archiver tools to fix "CMAKE_CXX_COMPILER_AR-NOTFOUND" error
+  cmake_args+=(-DCMAKE_AR="${AR}")
+  cmake_args+=(-DCMAKE_RANLIB="${RANLIB}")
 fi
 # -----------------------------------------------------------------------------
 
