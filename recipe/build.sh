@@ -29,7 +29,9 @@ cmake_args=(
 if [[ "${target_platform}" == osx-* ]]; then
   cmake_args+=(-DMESHLAB_ALLOW_DOWNLOAD_SOURCE_U3D=OFF)
   cmake_args+=(-DCMAKE_INSTALL_LIBDIR=lib)     # ask CMake to use lib/
-  # Explicitly set archiver tools to fix "CMAKE_CXX_COMPILER_AR-NOTFOUND" error
+  # Explicitly set archiver tools with full paths to fix archiver errors
+  export AR="${BUILD_PREFIX}/bin/${HOST}-ar"
+  export RANLIB="${BUILD_PREFIX}/bin/${HOST}-ranlib"
   cmake_args+=(-DCMAKE_AR="${AR}")
   cmake_args+=(-DCMAKE_RANLIB="${RANLIB}")
 fi
