@@ -2,7 +2,7 @@
 set -euo pipefail
 
 export CXXFLAGS="${CXXFLAGS:-} -include cstdint"
-export CXXFLAGS="${CXXFLAGS:-} -include algorithm"
+export CXXFLAGS="${CXXFLAGS} -include algorithm"
 
 # Suppress Clang 19+ errors for vcglib which uses older C++ template syntax
 if [[ "${target_platform}" == osx-* ]]; then
@@ -34,6 +34,8 @@ if [[ "${target_platform}" == osx-* ]]; then
   export RANLIB="${BUILD_PREFIX}/bin/${HOST}-ranlib"
   cmake_args+=(-DCMAKE_AR="${AR}")
   cmake_args+=(-DCMAKE_RANLIB="${RANLIB}")
+  # Pass CXXFLAGS directly to CMake to ensure they're not overridden
+  cmake_args+=(-DCMAKE_CXX_FLAGS="${CXXFLAGS}")
 fi
 # -----------------------------------------------------------------------------
 
