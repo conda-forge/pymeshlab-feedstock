@@ -34,6 +34,8 @@ if [[ "${target_platform}" == osx-* ]]; then
   export RANLIB="${BUILD_PREFIX}/bin/${HOST}-ranlib"
   cmake_args+=(-DCMAKE_AR="${AR}")
   cmake_args+=(-DCMAKE_RANLIB="${RANLIB}")
+  cmake_args+=(-DCMAKE_CXX_COMPILER_AR="${AR}")
+  cmake_args+=(-DCMAKE_CXX_COMPILER_RANLIB="${RANLIB}")
   # Pass CXXFLAGS directly to CMake to ensure they're not overridden
   cmake_args+=(-DCMAKE_CXX_FLAGS="${CXXFLAGS}")
 fi
