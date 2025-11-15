@@ -19,7 +19,7 @@ source:
     folder: src/pymeshlab/pybind11
 
 build:
-  number: 0
+  number: 1
   missing_dso_whitelist:
     - '*/external-glew.dll'    # [win]
     - '*/external-lib3ds.dll'  # [win]
