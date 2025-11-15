@@ -41,6 +41,6 @@ qt_main:
 target_platform:
 - osx-arm64
 tbb_devel:
-- '2021'
+- '2022'
 xerces_c:
 - '3.3'
