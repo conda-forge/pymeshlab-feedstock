@@ -19,7 +19,7 @@ glew:
 gmp:
 - '6'
 libboost_devel:
-- '1.86'
+- '1.88'
 libcurl:
 - '8'
 llvm_openmp:
@@ -41,6 +41,6 @@ qt_main:
 target_platform:
 - osx-64
 tbb_devel:
-- '2021'
+- '2022'
 xerces_c:
 - '3.3'
