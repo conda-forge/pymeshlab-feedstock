@@ -19,7 +19,7 @@ glew:
 gmp:
 - '6'
 libboost_devel:
-- '1.86'
+- '1.88'
 libcurl:
 - '8'
 llvm_openmp:
