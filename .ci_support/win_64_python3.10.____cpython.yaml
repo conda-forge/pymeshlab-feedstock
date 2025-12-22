@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2022
 glew:
-- '2.2'
+- '2.3'
 gmp:
 - '6'
 libboost_devel:

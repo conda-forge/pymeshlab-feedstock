@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '19'
 glew:
-- '2.2'
+- '2.3'
 gmp:
 - '6'
 libboost_devel:
