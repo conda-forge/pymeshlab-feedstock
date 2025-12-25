@@ -13,7 +13,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 glew:
-- '2.2'
+- '2.3'
 gmp:
 - '6'
 libboost_devel:
