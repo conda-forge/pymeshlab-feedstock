@@ -1,5 +1,5 @@
 {% set name = "pymeshlab" %}
-{% set version = "2025.7" %}
+{% set version = "2025.7.post1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/cnr-isti-vclab/PyMeshLab/archive/v{{ version }}.tar.gz
-    sha256: f915318995bb4e0a4b1506d2d79e2f9ab543b836218982ff6c6e8f8127d7ac2d
+    sha256: e4df9d2b16682b4c05ba4e2519592892d1be1c769fbad5272ce0ec837d27299a
   - url: https://github.com/cnr-isti-vclab/meshlab/archive/dc48b91ae562756a6988048c5d5c7f1d2b687256.tar.gz
     sha256: bac9cc42614ab5318f4c571a6d28eac7c1bfde69b601f9781d3e118d5a054da0
     folder: src/meshlab
@@ -19,7 +19,7 @@ source:
     folder: src/pymeshlab/pybind11
 
 build:
-  number: 3
+  number: 0
   missing_dso_whitelist:
     - '*/external-glew.dll'    # [win]
     - '*/external-lib3ds.dll'  # [win]
