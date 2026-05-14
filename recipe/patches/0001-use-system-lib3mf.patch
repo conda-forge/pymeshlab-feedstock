@@ -1,0 +1,19 @@
+diff --git a/src/external/lib3mf.cmake b/src/external/lib3mf.cmake
+index 4eced1d..c1c2a83 100644
+--- a/src/external/lib3mf.cmake
++++ b/src/external/lib3mf.cmake
+@@ -20,7 +20,13 @@
+ 
+ option(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LIB3MF "Allow download and use of lib3MF source" ON)
+ 
+-if(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LIB3MF)
++find_package(lib3mf CONFIG QUIET)
++if(TARGET lib3mf::lib3mf)
++  message(STATUS "- Lib3MF - Using system Lib3MF")
++  add_library(external-lib3mf INTERFACE)
++  target_link_libraries(external-lib3mf INTERFACE lib3mf::lib3mf)
++
++elseif(MESHLAB_ALLOW_DOWNLOAD_SOURCE_LIB3MF)
+   set(LIB3MF_VERSION "2.4.1")
+ 
+   set(LIB3MF_DIR ${MESHLAB_EXTERNAL_DOWNLOAD_DIR}/lib3mf-${LIB3MF_VERSION})

@@ -11,6 +11,8 @@ source:
   - url: https://github.com/cnr-isti-vclab/meshlab/archive/dc48b91ae562756a6988048c5d5c7f1d2b687256.tar.gz
     sha256: bac9cc42614ab5318f4c571a6d28eac7c1bfde69b601f9781d3e118d5a054da0
     folder: src/meshlab
+    patches:
+      - patches/0001-use-system-lib3mf.patch
   - url: https://github.com/cnr-isti-vclab/vcglib/archive/c94ef4e12e9ea3ae986d9af91005be8328d13719.tar.gz
     sha256: 346ff5386be9454fc6b70552d6e397c3d82efd3f8097bf06704c7a44ba3296d5
     folder: src/meshlab/src/vcglib
@@ -19,14 +21,12 @@ source:
     folder: src/pymeshlab/pybind11
 
 build:
-  number: 2
+  number: 3
   missing_dso_whitelist:
     - '*/external-glew.dll'    # [win]
     - '*/external-lib3ds.dll'  # [win]
     - '*/IDTF.dll'             # [win]
     - '*/meshlab-common.dll'   # [win]
-    - '$RPATH/lib3mf.so.2'     # [unix]
-    - '*/lib3mf.dll'           # [win]
   skip: true  # [win and py>310]
 
 requirements:
