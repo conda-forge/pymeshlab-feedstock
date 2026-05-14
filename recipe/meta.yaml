@@ -19,7 +19,7 @@ source:
     folder: src/pymeshlab/pybind11
 
 build:
-  number: 0
+  number: 1
   missing_dso_whitelist:
     - '*/external-glew.dll'    # [win]
     - '*/external-lib3ds.dll'  # [win]
@@ -82,10 +82,13 @@ test:
     - pymeshlab
   commands:
     - pip list
+    - python run_test.py
     # The 'pip check' command is disabled on Windows because it gives a false
     # negative due to a metadata mismatch (conda 'vc' vs pip 'msvc-runtime').
     # The 'imports' test above is the reliable indicator of a working package.
     - pip check  # [not win]
+  files:
+    - run_test.py
   requires:
     - pip
     - python
