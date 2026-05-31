@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: pymeshlab
   version: "2025.7.post1"
-  build_number: 4
+  build_number: 5
 
 package:
   name: ${{ name|lower }}
@@ -33,14 +33,11 @@ build:
   dynamic_linking:
     missing_dso_allowlist:
       - if: win
-        then: "*/external-glew.dll"
-      - if: win
-        then: "*/external-lib3ds.dll"
-      - if: win
-        then: "*/IDTF.dll"
-      - if: win
-        then: "*/meshlab-common.dll"
-
+        then:
+          - "*/external-glew.dll"
+          - "*/external-lib3ds.dll"
+          - "*/IDTF.dll"
+          - "*/meshlab-common.dll"
 requirements:
   build:
     - ${{ compiler("cxx") }}
@@ -70,11 +67,10 @@ requirements:
     - libboost-devel
     - libcurl
     - if: linux
-      then: libgl-devel
-    - if: linux
-      then: libglu
-    - if: linux
-      then: libgomp
+      then:
+        - libgl-devel
+        - libglu
+        - libgomp
     - if: osx
       then: llvm-openmp
     - mpfr
@@ -87,8 +83,6 @@ requirements:
     - setuptools
     - tbb-devel
     - tinygltf
-    - if: win
-      then: u3d
     - wheel
     - xerces-c
   run:
@@ -98,14 +92,10 @@ requirements:
       then: libglu
     - python
     - if: win
-      then: qt-main
-    - if: win
-      then: tbb
-    - if: win
-      then: u3d
-    - if: win
-      then: vcomp14
-
+      then:
+        - qt-main
+        - tbb
+        - vcomp14
 tests:
   - python:
       imports:
