@@ -83,8 +83,6 @@ requirements:
     - setuptools
     - tbb-devel
     - tinygltf
-    - if: win
-      then: u3d
     - wheel
     - xerces-c
   run:
@@ -97,7 +95,6 @@ requirements:
       then:
         - qt-main
         - tbb
-        - u3d
         - vcomp14
 tests:
   - python:
