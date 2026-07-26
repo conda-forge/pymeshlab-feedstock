@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: pymeshlab
   version: "2025.7.post1"
-  build_number: 5
+  build_number: 6
 
 package:
   name: ${{ name|lower }}
