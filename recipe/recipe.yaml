@@ -56,7 +56,7 @@ requirements:
     - if: unix
       then: rsync
   host:
-    - cgal
+    - cgal-cpp
     - eigen
     - embree
     - glew
