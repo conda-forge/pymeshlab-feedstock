@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: pymeshlab
   version: "2025.7.post1"
-  build_number: 6
+  build_number: 7
 
 package:
   name: ${{ name|lower }}
@@ -58,12 +58,14 @@ requirements:
   host:
     - cgal-cpp
     - eigen
-    - embree
+    - if: not ppc64le
+      then: embree
     - glew
     - gmp
     - if: linux64 or (osx and x86_64)
       then: igl
-    - lib3mf
+    - if: not ppc64le
+      then: lib3mf
     - libboost-devel
     - libcurl
     - if: linux
@@ -87,7 +89,8 @@ requirements:
     - xerces-c
   run:
     - numpy
-    - lib3mf
+    - if: not ppc64le
+      then: lib3mf
     - if: linux
       then: libglu
     - python
@@ -121,5 +124,6 @@ about:
   license_file: LICENSE
 
 extra:
+  feedstock-name: pymeshlab
   recipe-maintainers:
     - jeongseok-meta
