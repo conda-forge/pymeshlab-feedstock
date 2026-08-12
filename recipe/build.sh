@@ -23,6 +23,17 @@ cmake_args=(
   -DMESHLAB_BUILD_MINI=OFF
 )
 
+# Embree, libigl, and lib3mf are optional MeshLab plug-in dependencies and are
+# not packaged for linux-ppc64le. Prevent their source-download fallbacks so
+# MeshLab cleanly skips only the affected plug-ins on that platform.
+if [[ "${target_platform}" == "linux-ppc64le" ]]; then
+  cmake_args+=(
+    -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_EMBREE=OFF
+    -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_LIB3MF=OFF
+    -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_LIBIGL=OFF
+  )
+fi
+
 # --- macOS quirk -------------------------------------------------------------
 # MeshLab's CMake files install .dylib and plug-in .so files into
 #   Frameworks/ and PlugIns/  instead of lib/.
