@@ -20,17 +20,20 @@ cmake_args=(
   -DCMAKE_BUILD_TYPE=Release
   -DMESHLAB_ALLOW_OPTIONAL_EXTERNAL_LIBRARIES=ON
   -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_U3D=OFF
+  # This option also enables MeshLab's local LibIGL target. The recipe
+  # populates the expected tree, so CMake does not access the network.
+  -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_LIBIGL=ON
   -DMESHLAB_BUILD_MINI=OFF
 )
 
-# Embree, libigl, and lib3mf are optional MeshLab plug-in dependencies and are
-# not packaged for linux-ppc64le. Prevent their source-download fallbacks so
-# MeshLab cleanly skips only the affected plug-ins on that platform.
+# Embree and lib3mf are optional MeshLab plug-in dependencies that are not
+# packaged for linux-ppc64le. Prevent their source-download fallbacks so
+# MeshLab cleanly skips only the affected plug-ins on that platform. LibIGL is
+# supplied above as an offline recipe source and remains enabled.
 if [[ "${target_platform}" == "linux-ppc64le" ]]; then
   cmake_args+=(
     -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_EMBREE=OFF
     -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_LIB3MF=OFF
-    -DMESHLAB_ALLOW_DOWNLOAD_SOURCE_LIBIGL=OFF
   )
 fi
 

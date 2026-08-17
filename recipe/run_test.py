@@ -4,6 +4,8 @@ import tempfile
 import pymeshlab
 
 
+assert "generate_boolean_union" in pymeshlab.filter_list()
+
 mesh_set = pymeshlab.MeshSet()
 mesh_set.create_cube()
 
