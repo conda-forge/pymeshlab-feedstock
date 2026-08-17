@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: pymeshlab
   version: "2025.7.post1"
-  build_number: 7
+  build_number: 8
 
 package:
   name: ${{ name|lower }}
@@ -23,6 +23,10 @@ source:
   - url: https://github.com/pybind/pybind11/archive/refs/tags/v2.13.6.tar.gz
     sha256: e08cb87f4773da97fa7b5f035de8763abc656d87d5773e62f6da0587d1f0ec20
     target_directory: src/pymeshlab/pybind11
+  # MeshLab 2025.07 pins LibIGL 2.4.0 and consumes it from this exact path.
+  - url: https://github.com/libigl/libigl/archive/refs/tags/v2.4.0.tar.gz
+    sha256: f3f53ee6f1e9a6c529378c6b0439cd2cfc0e30b2178b483fe6bea169ce6deb22
+    target_directory: src/meshlab/src/external/downloads/libigl-2.4.0
 
 build:
   number: ${{ build_number }}
@@ -62,8 +66,6 @@ requirements:
       then: embree
     - glew
     - gmp
-    - if: linux64 or (osx and x86_64)
-      then: igl
     - if: not ppc64le
       then: lib3mf
     - libboost-devel
@@ -77,14 +79,12 @@ requirements:
       then: llvm-openmp
     - mpfr
     - muparser
-    - nexus
     - qhull
     - pip
     - python
     - qt-main
     - setuptools
     - tbb-devel
-    - tinygltf
     - wheel
     - xerces-c
   run:
