@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: pymeshlab
   version: "2025.7.post1"
-  build_number: 8
+  build_number: 9
 
 package:
   name: ${{ name|lower }}
@@ -12,6 +12,8 @@ package:
 source:
   - url: https://github.com/cnr-isti-vclab/PyMeshLab/archive/v${{ version }}.tar.gz
     sha256: e4df9d2b16682b4c05ba4e2519592892d1be1c769fbad5272ce0ec837d27299a
+    patches:
+      - patches/0002-use-portable-linux-wheel-tag.patch
   - url: https://github.com/cnr-isti-vclab/meshlab/archive/dc48b91ae562756a6988048c5d5c7f1d2b687256.tar.gz
     sha256: bac9cc42614ab5318f4c571a6d28eac7c1bfde69b601f9781d3e118d5a054da0
     target_directory: src/meshlab
@@ -116,6 +118,8 @@ tests:
       - python run_test.py
       - if: not win
         then: pip check
+      - if: linux
+        then: python -c "import importlib.metadata as m; p = next(p for p in m.files('pymeshlab') if p.name == 'WHEEL'); text = p.locate().read_text(); assert 'manylinux_' not in text and '-linux_' in text, text"
 
 about:
   homepage: https://github.com/cnr-isti-vclab/PyMeshLab
