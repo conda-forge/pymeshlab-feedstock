@@ -1,0 +1,16 @@
+diff --git a/setup.py b/setup.py
+index 6f6fca2..540a43c 100644
+--- a/setup.py
++++ b/setup.py
+@@ -29,10 +29,8 @@ try:
+             if platform.system() == 'Windows':
+                 platform_tag = 'win_amd64'
+             elif platform.system() == 'Linux':
+                 arch = sysconfig.get_platform().split('-')[1]
+-                glibc_version = os.popen('ldd --version').read().split('\n')[0].split()[-1]
+-                glibc_version = glibc_version.replace('.', '_')
+-                platform_tag = 'manylinux_' + glibc_version + '_' + arch
++                platform_tag = 'linux_' + arch
+             elif platform.system() == 'Darwin':
+                 arch = platform.machine()
+                 pltf = 'macosx_11_0_x86_64'
