@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: pymeshlab
   version: "2025.7.post1"
-  build_number: 8
+  build_number: 9
 
 package:
   name: ${{ name|lower }}
@@ -30,8 +30,6 @@ source:
 
 build:
   number: ${{ build_number }}
-  skip:
-    - win and match(python, ">3.10")
   script:
     file: ${{ "build.bat" if win else "build.sh" }}
   dynamic_linking:
