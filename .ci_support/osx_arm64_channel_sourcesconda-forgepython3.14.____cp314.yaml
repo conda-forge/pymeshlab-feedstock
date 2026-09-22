@@ -44,3 +44,6 @@ tbb_devel:
 - '2023'
 xerces_c:
 - '3.3'
+zip_keys:
+- - python
+  - channel_sources

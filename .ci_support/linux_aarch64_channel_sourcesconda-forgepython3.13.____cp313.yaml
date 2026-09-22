@@ -1,11 +1,17 @@
 c_stdlib:
-- vs
+- sysroot
+c_stdlib_version:
+- '2.17'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2022
+- gxx
+cxx_compiler_version:
+- '15'
+docker_image:
+- quay.io/condaforge/linux-anvil-aarch64:alma10
 glew:
 - '2.3'
 gmp:
@@ -21,14 +27,17 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.14.* *_cp314
+- 3.13.* *_cp313
 qhull:
 - '2020.2'
 qt_main:
 - '5.15'
 target_platform:
-- win-64
+- linux-aarch64
 tbb_devel:
 - '2023'
 xerces_c:
 - '3.3'
+zip_keys:
+- - python
+  - channel_sources

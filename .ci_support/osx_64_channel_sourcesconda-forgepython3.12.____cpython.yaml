@@ -33,7 +33,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.13.* *_cp313
+- 3.12.* *_cpython
 qhull:
 - '2020.2'
 qt_main:
@@ -44,3 +44,6 @@ tbb_devel:
 - '2023'
 xerces_c:
 - '3.3'
+zip_keys:
+- - python
+  - channel_sources

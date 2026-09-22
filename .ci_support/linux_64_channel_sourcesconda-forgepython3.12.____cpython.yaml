@@ -27,14 +27,17 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.11.* *_cpython
+- 3.12.* *_cpython
 qhull:
 - '2020.2'
 qt_main:
 - '5.15'
 target_platform:
-- linux-ppc64le
+- linux-64
 tbb_devel:
 - '2023'
 xerces_c:
 - '3.3'
+zip_keys:
+- - python
+  - channel_sources
